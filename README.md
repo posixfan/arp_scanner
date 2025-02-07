@@ -49,5 +49,5 @@ IP			MAC Address		Vendor
 192.168.10.1		50:d4:f7:3e:91:9c	TP-LINK TECHNOLOGIES CO.,LTD.
 </pre>
 
-# Acknowledgements
+# To understand better
 https://en.wikipedia.org/wiki/Address_Resolution_Protocol
