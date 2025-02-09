@@ -6,11 +6,25 @@ Author: Andrew Razuvaev <posixfan87@yandex.ru>
 # Install packages with pip and requirements.txt
 
 The following command installs packages in bulk according to the configuration file, requirements.txt. In some environments, use pip3 instead of pip.
-<pre>$ pip install -r requirements.txt</pre>\
+<pre>$ pip install -r requirements.txt</pre>
 Or
 <pre>
+$ pip install scapy
+$ pip install mac_vendor_lookup
+</pre>
+
+# New versions of Ubuntu and Debian use VENV
+What is VENV => https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
+
+Go to the directory with arp_scanner.py
+<pre>
+$ sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
 pip install scapy
 pip install mac_vendor_lookup
+sudo venv/bin/python3 arp_scanner.py **your_network_address**
+deactivate
 </pre>
 
 # How to use
