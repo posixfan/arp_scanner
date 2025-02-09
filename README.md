@@ -28,7 +28,9 @@ Quick Start Guide
 </pre>
 
 # How to use
-<pre>usage: arp_scan target [options]
+<pre>
+$ ./arp_scanner.py -h
+usage: arp_scan target [options]
 
 Search for live hosts by arp responses.
 
@@ -37,35 +39,54 @@ positional arguments:
 
 options:
   -h, --help  show this help message and exit
-  --hw        Identify the hardware vendor by mac address (Internet needed)</pre>
-
-Scan the host
+</pre>
+  
+Scan the host (without VENV)
 <pre>
 $ sudo ./arp_scanner.py 192.168.10.1 
 
-IP			MAC Address
------------------------------------------
-192.168.10.1		50:d4:f7:3e:91:9c	</pre>
+IP			MAC Address		Manufacturer
+------------------------------------------------------------------------------
+192.168.10.1		50:d4:f7:3e:91:9c	TP-LINK TECHNOLOGIES CO.,LTD.
+</pre>
 
-Scan the network
+Scan the host (with VENV)
+<pre>
+$ sudo venv/bin/python3 arp_scanner.py 192.168.10.1
+
+IP			MAC Address		Manufacturer
+------------------------------------------------------------------------------
+192.168.10.1		50:d4:f7:3e:91:9c	TP-LINK TECHNOLOGIES CO.,LTD.
+
+</pre>
+
+Scan the network (without VENV)
 <pre>
 $ sudo ./arp_scanner.py 192.168.10.0/24
 
-IP			MAC Address
------------------------------------------
-192.168.10.1		50:d4:f7:3e:91:9c	
-192.168.10.124		08:00:27:d2:26:79	
-192.168.10.143		44:cb:8b:53:b0:b2	
-192.168.10.222		34:c9:3d:a2:06:ca	
+IP			MAC Address		Manufacturer
+------------------------------------------------------------------------------
+192.168.10.1		50:d4:f7:3e:91:9c	TP-LINK TECHNOLOGIES CO.,LTD.
+192.168.10.103		52:1a:9a:23:0c:14	Manufacturer not found
+192.168.10.234		d0:37:45:4d:d1:fe	TP-LINK TECHNOLOGIES CO.,LTD.
+192.168.10.143		44:cb:8b:53:b0:b2	LG Innotek
+192.168.10.222		34:c9:3d:a2:06:ca	Intel Corporate
+192.168.10.235		98:2c:bc:ba:cd:86	Intel Corporate
 </pre>
 
-Identify the manufacturer
+Scan the network (with VENV)
 <pre>
-$ sudo ./arp_scanner.py 192.168.10.1 --hw
+$ sudo venv/bin/python3 arp_scanner.py 192.168.10.0/24
 
-IP			MAC Address		Vendor
-------------------------------------------------------------------------
+IP			MAC Address		Manufacturer
+------------------------------------------------------------------------------
 192.168.10.1		50:d4:f7:3e:91:9c	TP-LINK TECHNOLOGIES CO.,LTD.
+192.168.10.103		52:1a:9a:23:0c:14	Manufacturer not found
+192.168.10.234		d0:37:45:4d:d1:fe	TP-LINK TECHNOLOGIES CO.,LTD.
+192.168.10.143		44:cb:8b:53:b0:b2	LG Innotek
+192.168.10.222		34:c9:3d:a2:06:ca	Intel Corporate
+192.168.10.235		98:2c:bc:ba:cd:86	Intel Corporate
+
 </pre>
 
 # To understand better
