@@ -41,7 +41,7 @@ options:
   -h, --help  show this help message and exit
 </pre>
   
-Scan the host (without VENV)
+**Scan the host (without VENV)**
 <pre>
 $ sudo ./arp_scanner.py 192.168.10.1 
 
@@ -50,7 +50,7 @@ IP			MAC Address		Manufacturer
 192.168.10.1		50:d4:f7:3e:91:9c	TP-LINK TECHNOLOGIES CO.,LTD.
 </pre>
 
-Scan the host (with VENV)
+**Scan the host (with VENV)**
 <pre>
 $ sudo venv/bin/python3 arp_scanner.py 192.168.10.1
 
@@ -60,7 +60,7 @@ IP			MAC Address		Manufacturer
 
 </pre>
 
-Scan the network (without VENV)
+**Scan the network (without VENV)**
 <pre>
 $ sudo ./arp_scanner.py 192.168.10.0/24
 
@@ -74,7 +74,7 @@ IP			MAC Address		Manufacturer
 192.168.10.235		98:2c:bc:ba:cd:86	Intel Corporate
 </pre>
 
-Scan the network (with VENV)
+**Scan the network (with VENV)**
 <pre>
 $ sudo venv/bin/python3 arp_scanner.py 192.168.10.0/24
 
