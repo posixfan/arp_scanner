@@ -6,7 +6,12 @@ Author: Andrew Razuvaev <posixfan87@yandex.ru>
 # Install packages with pip and requirements.txt
 
 The following command installs packages in bulk according to the configuration file, requirements.txt. In some environments, use pip3 instead of pip.
-<pre>$ pip install -r requirements.txt</pre>
+<pre>$ pip install -r requirements.txt</pre>\
+Or
+<pre>
+pip install scapy
+pip install mac_vendor_lookup
+</pre>
 
 # How to use
 <pre>usage: arp_scan target [options]
