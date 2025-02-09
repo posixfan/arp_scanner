@@ -1,6 +1,6 @@
-#!/usr/bin/python3
-import requests
+#!/usr/bin/env python3
 from argparse import ArgumentParser
+from mac_vendor_lookup import MacLookup
 from ipaddress import IPv4Network
 from os import getuid
 from scapy.layers.l2 import ARP, Ether
@@ -11,9 +11,6 @@ parser = ArgumentParser(description='Search for live hosts by arp responses.',
 parser.add_argument('target', type=str,
                     help='Target IPv4 addresses. You can also use CIDR notation'
                          ' 10.0.0.0/24')
-parser.add_argument('--hw', action='store_true',
-                    help='Identify the hardware vendor by mac address '
-                         '(Internet needed)')
 args = parser.parse_args()
 
 def is_running_as_root():
@@ -39,35 +36,22 @@ def arp_scan(ip):
     return clients_list
 
 def get_vendor_by_mac(mac_address):
-    mac_address = mac_address.replace(':', '-').upper()
-    url = f'https://api.macvendors.com/{mac_address}'
-
     try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.text
-        else:
-            return 'Couldn\'t find the vendor'
-    except requests.exceptions.RequestException as e:
-        return f'Request error: {e}'
+        return MacLookup().lookup(mac_address)
+    except:
+        return f'Manufacturer not found'
 
 def print_result(results_list):
-    print(f'\nIP\t\t\tMAC Address', end='')
-    if args.hw:
-        print(f'\t\tVendor\n{'-' * 72}')
-    else:
-        print(f'\n{'-' * 41}')
+    print(f'\nIP\t\t\tMAC Address\t\tManufacturer\n{"-" * 78}')
 
     for client in results_list:
-        print(f'{client['ip']}\t\t{client['mac']}', end='\t')
-        if args.hw:
-            print(get_vendor_by_mac(client['mac']), end='')
-        print()
+        print(f'{client["ip"]}\t\t{client["mac"]}\t{get_vendor_by_mac(client["mac"])}')
 
 def main():
     if not is_running_as_root():
         print('Root rights are required')
         return
+
     if not is_valid_ipv4_cidr(args.target):
         print('Invalid ip address format\n'
              'An example of the correct format: 192.168.1.10, 10.205.100.0/24,'
@@ -80,7 +64,6 @@ def main():
         print_result(result)
     except KeyboardInterrupt:
         print('\nTurning off the program\n')
-
 
 if __name__ == '__main__':
     main()
