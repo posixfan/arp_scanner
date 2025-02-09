@@ -16,15 +16,15 @@ $ pip install mac_vendor_lookup
 # New versions of Ubuntu and Debian use VENV
 What is VENV => https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
 
-Go to the directory with arp_scanner.py
+Quick Start Guide
 <pre>
-$ sudo apt install python3-venv
-python3 -m venv venv
-source venv/bin/activate
-pip install scapy
-pip install mac_vendor_lookup
-sudo venv/bin/python3 arp_scanner.py **your_network_address**
-deactivate
+~/arp_scanner$ sudo apt install python3-venv
+~/arp_scanner$ python3 -m venv venv
+~/arp_scanner$ source venv/bin/activate
+~/arp_scanner$ pip install scapy
+~/arp_scanner$ pip install mac_vendor_lookup
+~/arp_scanner$ sudo venv/bin/python3 arp_scanner.py __your_network_address__
+~/arp_scanner$ deactivate
 </pre>
 
 # How to use
