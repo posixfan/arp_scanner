@@ -61,14 +61,14 @@ IP                     MAC Address              Manufacturer
 
 ## Code Overview
 - ARP Scanning: The script sends ARP requests to the specified IP range and listens for responses.
-- MAC Vendor Lookup: It uses the mac-vendor-lookup library to retrieve the manufacturer information based on the MAC address.
+- MAC Vendor Lookup: It uses the `mac-vendor-lookup` library to retrieve the manufacturer information based on the MAC address.
 - Root Check: The script ensures it is run with root privileges to access raw sockets.
 - Input Validation: It validates the provided IP address or CIDR range before scanning.
 
 ## Limitations
 - The script requires root privileges to run.
 - It only supports IPv4 addresses.
-- The manufacturer lookup depends on the accuracy of the mac-vendor-lookup database.
+- The manufacturer lookup depends on the accuracy of the `mac-vendor-lookup` database.
 
 # Author
 Andrew Razuvaev - [GitHub](https://github.com/posixfan) | <posixfan87@yandex.ru>
