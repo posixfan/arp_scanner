@@ -20,10 +20,12 @@ Before running the script, ensure you have the following installed:
 ## Usage
 
 1. Clone the repository or download the script.
-2. Ensure the script has executable permissions:
+   ```bash
+   git clone https://github.com/posixfan/arp_scanner
+3. Ensure the script has executable permissions:
    ```bash
    chmod +x arp_scan.py
-3. Run the script with root privileges:
+4. Run the script with root privileges:
    ```bash
    sudo ./arp_scan.py <target>
 Replace `<target>` with the IPv4 address or CIDR range you want to scan (e.g., `192.168.1.0/24`).
