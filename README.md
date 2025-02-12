@@ -34,7 +34,7 @@ Replace `<target>` with the IPv4 address or CIDR range you want to scan (e.g., `
 [What is VENV](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/)
 
 ### Quick Start Guide
-<pre>bash
+<pre>
 ~/arp_scanner$ sudo apt install python3-venv
 ~/arp_scanner$ python3 -m venv venv
 ~/arp_scanner$ source venv/bin/activate
