@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# https://github.com/posixfan/arp-keeper
+# https://github.com/posixfan/arp_scanner
 from argparse import ArgumentParser
 from mac_vendor_lookup import MacLookup
 from ipaddress import IPv4Network
